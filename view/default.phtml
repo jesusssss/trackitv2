@@ -1,8 +1,11 @@
 <?php
 
-include("layout/header.phtml");
-include($writemaincontent);
-include("layout/footer.phtml");
+if($config["username"] == 'Guest') {
+    include("login.phtml");
+} else {
+    include("layout/header.phtml");
+    include($writemaincontent);
+    include("layout/footer.phtml");
+}
 
-echo $conf_url;
-echo $conf_timestamp;
+echo $config["username"];

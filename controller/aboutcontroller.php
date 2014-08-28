@@ -1,9 +1,13 @@
 <?php
 
-class AboutController {
+class AboutController extends BaseController {
 
     public function __construct() {
-        echo "We are in aboutcontroller";
+
+    }
+
+    public function index() {
+        $this->render("about");
     }
 
 }

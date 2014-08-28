@@ -1,10 +1,14 @@
 <?php
 
-class BaseController {
+class BaseController extends DatabaseController {
 
     private $data = array();
 
     public function __construct() {
+        parent::__construct();
+    }
+
+    public function isLoggedIn() {
 
     }
 
@@ -13,7 +17,9 @@ class BaseController {
         $view->render($render);
     }
 
-    public function assign($key, $value) {
-        $this->data[$key] = $value;
+    public function assign($data) {
+        foreach($data as $key => $value) {
+            $this->data[$key] = $value;
+        }
     }
 }
