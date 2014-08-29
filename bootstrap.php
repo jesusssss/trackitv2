@@ -5,7 +5,6 @@
  */
 
 require_once("config.php");
-require_once(LIBS."autoloader.php");
-spl_autoload_register('\Libs\Autoloader::loader');
+require_once("vendor/autoload.php");
 
 require_once(LIBS."routes.php");
