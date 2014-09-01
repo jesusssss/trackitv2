@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa451dcc-474e-407c-99ef-22eb16385c09" name="Default" comment="User controller more deep and view and base more extend&#10;">
+    <list default="true" id="fa451dcc-474e-407c-99ef-22eb16385c09" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/AboutController.php" afterPath="$PROJECT_DIR$/controller/AboutController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/BaseController.php" afterPath="$PROJECT_DIR$/controller/BaseController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/DatabaseController.php" afterPath="$PROJECT_DIR$/controller/DatabaseController.php" />
@@ -53,7 +53,7 @@
       <file leaf-file-name="ViewController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/ViewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="55" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.33282673" vertical-offset="1041" max-vertical-offset="2160">
+            <state line="96" column="0" selection-start="3201" selection-end="3201" vertical-scroll-proportion="1.6924584" vertical-offset="0" max-vertical-offset="2160">
               <folding />
             </state>
           </provider>
@@ -361,14 +361,18 @@
       <created>1409312636487</created>
       <updated>1409312636487</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="User controller more deep and view and base more extend&#10;">
+      <created>1409553193563</created>
+      <updated>1409553193563</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="1855" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32910246" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32910246" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -682,7 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ViewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="55" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.33282673" vertical-offset="1041" max-vertical-offset="2160">
+        <state line="96" column="0" selection-start="3201" selection-end="3201" vertical-scroll-proportion="1.6924584" vertical-offset="0" max-vertical-offset="2160">
           <folding />
         </state>
       </provider>
