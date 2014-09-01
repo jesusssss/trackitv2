@@ -1,6 +1,8 @@
 <?php
 
-namespace Controller {
+namespace Controller\Error {
+    use Controller\BaseController;
+
     class ErrorController extends BaseController {
 
         public function __construct() {

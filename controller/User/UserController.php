@@ -1,6 +1,9 @@
 <?php
 
-namespace Controller {
+namespace Controller\User {
+    use Controller\BaseController;
+    use Controller\Database\DatabaseController;
+
     class UserController extends BaseController {
 
         private $user;
@@ -17,7 +20,7 @@ namespace Controller {
 
         public function getCurrentUser() {
             if($this->sget("user")) {
-                $user = $this->em->find("Model\\User", $this->sget("user"));
+                $user = $this->db->em->find("Model\\User\\User", $this->sget("user"));
                 return $user;
             } else {
                 return false;

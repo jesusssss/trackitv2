@@ -1,9 +1,17 @@
 <?php
 
 namespace Controller {
-    class BaseController extends DatabaseController {
+    use Controller\Database\DatabaseController;
+    use Controller\View\ViewController;
+
+    class BaseController {
 
         private $data = array();
+        public $db;
+
+        public function __construct() {
+            $this->db = DatabaseController::getInstance();
+        }
 
         public function isLoggedIn() {
 

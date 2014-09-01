@@ -1,6 +1,8 @@
 <?php
 
-namespace Controller {
+namespace Controller\Router {
+    use Controller\BaseController;
+
     class RouterController extends BaseController {
 
         private static $_uri;
@@ -61,7 +63,8 @@ namespace Controller {
                 foreach(self::getUri() as $key => $value) {
                     if($uri == $value) {
                         if(is_array(self::getMethods()[$key])) {
-                            $controller = "Controller\\".self::getMethods()[$key][0];
+                            $namespace = explode("Controller", self::getMethods()[$key][0]);
+                            $controller = "Controller\\".$namespace[0]."\\".self::getMethods()[$key][0];
                             $function = self::getMethods()[$key][1];
 
                             $run = new $controller();

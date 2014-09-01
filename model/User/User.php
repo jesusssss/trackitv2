@@ -1,6 +1,6 @@
 <?php
 
-namespace Model {
+namespace Model\User {
 
     /**
      * @Entity @Table(name="Users")

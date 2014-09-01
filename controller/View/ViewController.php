@@ -1,26 +1,21 @@
 <?php
 
-namespace Controller {
-    class ViewController extends DatabaseController {
+namespace Controller\View {
+
+    use Controller\BaseController;
+    use Controller\Database\DatabaseController;
+    use Controller\User\UserController;
+
+    class ViewController extends BaseController {
         private $data = array();
 
         public function __construct($data = array()) {
+            //Construct parrent (Basecontroller)
+            parent::__construct();
+
             //Get the users ip address from function to put in as standard data
             $ip = $this->getIp();
 
-            //Is the user logged in from function to put in as standard data
-            $userController = new UserController();
-            if($user = $userController->getCurrentUser()) {
-                $username = $user->getUsername();
-                $userId = $user->getId();
-            } else {
-                $username = "Guest";
-                $userId = null;
-            }
-
-            /*
-             * Get url and posts / gets
-             */
             $url = $this->getUrlAndRequests();
 
             /*
@@ -32,8 +27,6 @@ namespace Controller {
                     "requests" => "?".$url[1],
                     "timestamp" => date("Y-m-d H:i:s"),
                     "userIp" => $ip,
-                    "userId" => $userId,
-                    "username" => $username,
                 )
             );
 
@@ -65,10 +58,13 @@ namespace Controller {
                 /*
                  * If not - show the real page and extract the data to it so its usable as variables on that page.
                  */
+
+                echo $this->db->theme;
+
                 ob_start();
                     extract($this->data);
-                    $writemaincontent = VIEW.$view.".phtml";
-                    require_once(VIEW."default.phtml");
+                    $writemaincontent = VIEW.$this->db->theme."/".$view.".phtml";
+                    require_once(VIEW.$this->db->theme."/"."layout.phtml");
                 ob_end_flush();
             }
 
