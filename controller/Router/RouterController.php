@@ -55,29 +55,57 @@ namespace Controller\Router {
         }
 
         public static function submit() {
+            /* Run function based on URI */
+            if(self::getPostAction($_POST)) {
+                self::runFunction(self::getPostAction($_POST));
+            }
+            self::runFunction(self::getUriAction());
+        }
 
+        public static function runFunction($array) {
+            if(is_array($array)) {
+                $run = new $array[0]();
+                $run->$array[1]();
+            } else {
+                $run = new $array();
+            }
+        }
 
+        public static function getUriAction() {
             $uri = (isset($_GET["uri"]) ? "/" . trim($_GET["uri"],'/') : '/');
 
             if(in_array($uri, self::getUri())) {
                 foreach(self::getUri() as $key => $value) {
                     if($uri == $value) {
+                        $namespace = explode("Controller", self::getMethods()[$key][0]);
+                        $controller = "Controller\\".$namespace[0]."\\".self::getMethods()[$key][0];
                         if(is_array(self::getMethods()[$key])) {
-                            $namespace = explode("Controller", self::getMethods()[$key][0]);
-                            $controller = "Controller\\".$namespace[0]."\\".self::getMethods()[$key][0];
                             $function = self::getMethods()[$key][1];
-
-                            $run = new $controller();
-                            $run->$function();
+                            $data = array($controller, $function);
                         } else {
-                            $controller = self::getMethods()[$key];
-                            $run = new $controller();
+                            $data = $controller;
                         }
+                        return $data;
                     }
                 }
             } else {
-                $run = new ErrorController();
+                $controller = "Controller\\Error\\ErrorController";
+                return $controller;
             }
+        }
+
+        public static function getPostAction($posts) {
+            $data = false;
+            foreach($posts as $key => $value) {
+                if(strpos($key, "Action-") !== false) {
+                    $command = explode("-",$key);
+                    $controller = "Controller\\".$command[1]."\\".$command[1]."Controller";
+                    $function = $command[2];
+
+                    $data = array($controller, $function);
+                }
+            }
+            return $data;
         }
     }
 }

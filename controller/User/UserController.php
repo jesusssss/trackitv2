@@ -19,17 +19,38 @@ namespace Controller\User {
         }
 
         public function getCurrentUser() {
-            if($this->sget("user")) {
-                $user = $this->db->em->find("Model\\User\\User", $this->sget("user"));
+            $user = $this->em->find("Model\\User\\User", $this->sget("user"));
+            print_r($user);
+            if($user) {
                 return $user;
             } else {
-                return false;
+                return null;
             }
         }
 
         public function logOut() {
             $this->skill("user");
             $this->redirect("/");
+        }
+
+        public function login() {
+            $username = $this->pget("User-username");
+            $password = $this->pget("User-password");
+
+            $user = $this->em->createQuery("SELECT u FROM Model\\User\\User u WHERE u.username = :username AND u.password = :password");
+            $user->setParameter("username" , $username);
+            $user->setParameter("password", $password);
+
+            $result = $user->getResult();
+
+            if($result) {
+                print_r($result);
+                $_SESSION["user"] = $result[0]->getId();
+                $this->redirect("/");
+            } else {
+                return false;
+            }
+
         }
     }
 }

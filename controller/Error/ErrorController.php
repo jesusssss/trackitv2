@@ -7,7 +7,7 @@ namespace Controller\Error {
 
         public function __construct() {
             parent::__construct();
-            $this->assign(array(
+            self::assign(array(
                 "text" => "Some text",
                 "another" => "Another text"
             ));

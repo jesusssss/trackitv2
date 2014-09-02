@@ -2,11 +2,12 @@
 
 namespace Controller\Database {
 
-    use Doctrine\ORM\Tools\Setup;
+    use \Doctrine\ORM\Tools\Setup;
     use Doctrine\ORM\EntityManager;
 
     class DatabaseController {
 
+        /** @var  $em \Doctrine\ORM\EntityManager */
         public $em;
         public $theme;
         public static $instance;

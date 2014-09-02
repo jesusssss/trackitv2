@@ -16,7 +16,7 @@
 <body>
         <?php
         //If a user isset, and the user is an admin user
-        if(isset($user) && $user["admin"] == 1) {
+        if($user["admin"] == 1){
             //Get the header layout
             include("layout/header.phtml");
 

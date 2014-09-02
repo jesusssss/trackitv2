@@ -18,7 +18,64 @@ namespace Model\User {
         protected $password;
 
         /** @Column(type="string") **/
-        protected $time;
+        protected $firstname;
+
+        /** @Column(type="string") **/
+        protected $lastname;
+
+        /** @Column(type="string") **/
+        protected $email;
+
+        /** @Column(type="integer") **/
+        protected $admin;
+
+        /**
+         * @param mixed $admin
+         */
+        public function setAdmin($admin)
+        {
+            $this->admin = $admin;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getAdmin()
+        {
+            return $this->admin;
+        }
+
+        /**
+         * @param mixed $email
+         */
+        public function setEmail($email)
+        {
+            $this->email = $email;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getEmail()
+        {
+            return $this->email;
+        }
+
+        /**
+         * @param mixed $firstname
+         */
+        public function setFirstname($firstname)
+        {
+            $this->firstname = $firstname;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getFirstname()
+        {
+            return $this->firstname;
+        }
 
         /**
          * @param mixed $id
@@ -34,6 +91,22 @@ namespace Model\User {
         public function getId()
         {
             return $this->id;
+        }
+
+        /**
+         * @param mixed $lastname
+         */
+        public function setLastname($lastname)
+        {
+            $this->lastname = $lastname;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getLastname()
+        {
+            return $this->lastname;
         }
 
         /**
@@ -53,22 +126,6 @@ namespace Model\User {
         }
 
         /**
-         * @param mixed $time
-         */
-        public function setTime($time)
-        {
-            $this->time = $time;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getTime()
-        {
-            return $this->time;
-        }
-
-        /**
          * @param mixed $username
          */
         public function setUsername($username)
@@ -83,6 +140,7 @@ namespace Model\User {
         {
             return $this->username;
         }
+
 
 
     }
