@@ -1,5 +1,36 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Skal laves så den får fra admin -->
+    <title>
+        Control pannel
+    </title>
+    <meta charset="UTF-8"/>
+    <!-- Css includes -->
+    <link rel="stylesheet" href="/view/_generel/css/reset.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <!-- Js includes -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/toolbox.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <?php
+        //If a user isset, and the user is an admin user
+        if(isset($user) && $user["admin"] == 1) {
+            //Get the header layout
+            include("layout/header.phtml");
 
-    include("layout/header.phtml");
-    include($writemaincontent);
-    include("layout/footer.phtml");
+            //Get the real content (Mostly from DB)
+            include($writemaincontent);
+
+            //Get the footer layout
+            include("layout/footer.phtml");
+        } else {
+            //Tell the user to login with the login layout
+            include("login.phtml");
+        }
+        ?>
+    </div>
+</body>
+</html>
