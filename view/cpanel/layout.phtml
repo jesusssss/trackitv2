@@ -14,7 +14,6 @@
     <script src="<?php echo $config["dir"]; ?>js/toolbox.js"></script>
 </head>
 <body>
-    <div class="wrapper">
         <?php
         //If a user isset, and the user is an admin user
         if(isset($user) && $user["admin"] == 1) {
@@ -31,6 +30,5 @@
             include("login.phtml");
         }
         ?>
-    </div>
 </body>
 </html>

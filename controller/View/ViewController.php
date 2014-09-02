@@ -60,9 +60,6 @@ namespace Controller\View {
                 /*
                  * If not - show the real page and extract the data to it so its usable as variables on that page.
                  */
-
-                echo $this->db->theme;
-
                 ob_start();
                     extract($this->data);
                     $writemaincontent = VIEW.$this->db->theme."/".$view.".phtml";
