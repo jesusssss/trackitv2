@@ -27,6 +27,8 @@ namespace Controller\View {
                     "requests" => "?".$url[1],
                     "timestamp" => date("Y-m-d H:i:s"),
                     "userIp" => $ip,
+                    "theme" => $this->db->theme,
+                    "dir" => "/view/".$this->db->theme."/"
                 )
             );
 
