@@ -1,9 +1,9 @@
 <?php
 
 namespace Controller\Router {
-    use Controller\BaseController;
+    use Controller\Error\ErrorController;
 
-    class RouterController extends BaseController {
+    class RouterController {
 
         private static $_uri;
         private static $_methods;
@@ -63,11 +63,15 @@ namespace Controller\Router {
         }
 
         public static function runFunction($array) {
-            if(is_array($array)) {
-                $run = new $array[0]();
-                $run->$array[1]();
+            if(class_exists($array[0])) {
+                if(is_array($array)) {
+                    $run = new $array[0]();
+                    $run->$array[1]();
+                } else {
+                    $run = new $array();
+                }
             } else {
-                $run = new $array();
+                $run = new ErrorController();
             }
         }
 

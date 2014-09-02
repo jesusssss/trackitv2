@@ -6,12 +6,11 @@ namespace Controller\View {
     use Controller\Database\DatabaseController;
     use Controller\User\UserController;
 
-    class ViewController extends BaseController {
+    class ViewController {
         private $data = array();
 
         public function __construct($data = array()) {
             //Construct parrent (Basecontroller)
-            parent::__construct();
 
             $this->data = $data;
 
@@ -49,8 +48,8 @@ namespace Controller\View {
                  */
                 ob_start();
                     extract($this->data);
-                    $writemaincontent = VIEW.$this->db->theme."/".$view.".phtml";
-                    require_once(VIEW.$this->db->theme."/"."layout.phtml");
+                    $writemaincontent = VIEW.BaseController::get()->db->theme."/".$view.".phtml";
+                    require_once(VIEW.BaseController::get()->db->theme."/"."layout.phtml");
                 ob_end_flush();
             }
 

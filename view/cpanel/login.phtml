@@ -4,6 +4,12 @@
 
         <h1>Login</h1>
 
+        <div id="error" style="display: none;">
+            <h1 style="font-size: 22px; color: #B54A52;">
+                Wrong information - please try again:
+            </h1>
+        </div>
+
         <form method="post">
             <div>
                 <label for="username">Username</label>
@@ -13,6 +19,20 @@
             </div>
             <input type="submit" name="Action-User-login" value="Let's do this"/>
         </form>
+
+        <script type="text/javascript">
+            $(function() {
+               <?php if(isset($error)) {
+                ?>
+                /* If Error We show error msg */
+                setTimeout(function() {
+                    $("#error").slideToggle();
+                }, 250);
+                <?php
+                    }
+                ?>
+            });
+        </script>
 
     </div>
 

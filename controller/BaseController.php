@@ -13,7 +13,16 @@ namespace Controller {
         /** @var \Doctrine\ORM\EntityManager $em */
         public $em;
 
-        public function __construct() {
+        public static $instance;
+
+        public static function get() {
+            if(!isset(self::$instance)) {
+                self::$instance = new BaseController();
+            }
+            return self::$instance;
+        }
+
+        private function __construct() {
 
             $this->db = DatabaseController::getInstance();
             $this->em = $this->db->em;
@@ -79,6 +88,7 @@ namespace Controller {
              if($this->sget("user")) {
                 $user = $this->em->find("Model\\User\\User", $this->sget("user"));
                 $user = array(
+                    "id" => $user->getId(),
                     "username" => $user->getUsername(),
                     "password" => $user->getPassword(),
                     "firstname" => $user->getFirstName(),

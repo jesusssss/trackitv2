@@ -1,1 +1,11 @@
+<h2>Hej, <?php echo $user["firstname"]." ".$user["lastname"]. " @ ".$user["email"]; ?> </h2>
+<h3>
+    <?php
+        if($user["admin"] == 1) {
+            echo "Du er admin";
+        } else {
+            echo "Du er ikke admin";
+        }
+    ?>
+</h3>
 <a href="/logout">Logout</a>

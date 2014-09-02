@@ -4,7 +4,7 @@ namespace Controller\User {
     use Controller\BaseController;
     use Controller\Database\DatabaseController;
 
-    class UserController extends BaseController {
+    class UserController {
 
         private $user;
 
@@ -29,28 +29,36 @@ namespace Controller\User {
         }
 
         public function logOut() {
-            $this->skill("user");
-            $this->redirect("/");
+            BaseController::get()->skill("user");
+            BaseController::get()->redirect("/");
         }
 
         public function login() {
-            $username = $this->pget("User-username");
-            $password = $this->pget("User-password");
+            $username = BaseController::get()->pget("User-username");
+            $password = BaseController::get()->pget("User-password");
 
-            $user = $this->em->createQuery("SELECT u FROM Model\\User\\User u WHERE u.username = :username AND u.password = :password");
-            $user->setParameter("username" , $username);
-            $user->setParameter("password", $password);
+            //TODO - der kan logges ind kun med password
+            $user = BaseController::get()->em->createQuery("SELECT u FROM Model\\User\\User u WHERE u.username = :username AND u.password = :password");
+            $user->setParameters(array(
+                "username" => $username,
+                "password" => $password
+            ));
 
-            $result = $user->getResult();
+            $result = $user->getSingleResult();
+
 
             if($result) {
-                print_r($result);
-                $_SESSION["user"] = $result[0]->getId();
-                $this->redirect("/");
+                $_SESSION["user"] = $result->getId();
+                BaseController::get()->redirect("/");
             } else {
+                BaseController::get()->assign(
+                    "error",
+                    array(
+                        "msg" => "Wrong information, please try again:"
+                    )
+                );
                 return false;
             }
-
         }
     }
 }

@@ -3,15 +3,10 @@
 namespace Controller\Error {
     use Controller\BaseController;
 
-    class ErrorController extends BaseController {
+    class ErrorController {
 
         public function __construct() {
-            parent::__construct();
-            self::assign(array(
-                "text" => "Some text",
-                "another" => "Another text"
-            ));
-            $this->render("404");
+            BaseController::get()->render("404");
         }
 
     }
