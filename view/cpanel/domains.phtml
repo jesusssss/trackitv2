@@ -1,12 +1,66 @@
-<h1>
-    List of domains
-
-    <?php
-
-        foreach($domains as $domain) {
-            echo $domain["uri"]."<br/>";
-        }
-
-    ?>
-
-</h1>
+<h1>Domains administration</h1>
+<ul class="statList">
+    <li class="darkRed">
+        <div class="icon">
+            <i class="fa fa-line-chart"></i>
+        </div>
+        <div class="info">
+            <div><?php echo $domains["total"]; ?></div>
+            <div>Domains running</div>
+        </div>
+    </li>
+</ul>
+<br/>
+<div id="tabs">
+    <ul>
+        <li><a href="#list">List</a></li>
+        <li><a href="#add">Add</a></li>
+        <li><a href="#delete">Delete</a></li>
+        <li style="<?php if(isset($_GET["Domain-edit"])) { echo "display: block;"; } else { echo "display: none;"; } ?>"><a href="#edit">Edit</a></li>
+    </ul>
+    <div id="list">
+        <form id="searchDomains">
+            <input type="text" placeholder="Search domains..."/>
+        </form>
+        <table id="domains">
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Database</th>
+                    <th>Theme</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            usort($domains["domains"], function($a, $b) {
+                return $a['uri'] - $b['uri'];
+            });
+                foreach($domains["domains"] as $domain) {
+            ?>
+                <tr>
+                    <td>
+                        <a href="http://<?php echo $domain["uri"]; ?>" data-value="<?php echo $domain["uri"]; ?>" class="domLink" target="_blank">
+                            <?php echo $domain["uri"]; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $domain["dbname"]; ?></td>
+                    <td><?php echo $domain["theme"]; ?></td>
+                    <td><a href="/domains?Domain-edit=<?php echo $domain["id"]; ?>&tab=#edit"><i class="fa fa-cog"></i></a></td>
+                </tr>
+            <?php
+                }
+            ?>
+            </tbody>
+        </table>
+    </div>
+    <div id="add">
+        Tab 2
+    </div>
+    <div id="delete">
+        Tab 3
+    </div>
+    <div id="edit">
+        Tab 3
+    </div>
+</div>

@@ -105,8 +105,22 @@ namespace Controller {
             return $user;
         }
 
-        public function assign($treename, $data = array()) {
-            $this->viewData[$treename] = $data;
+        public function assign($treename, $data = array(), $fixName = false) {
+            if(isset($this->viewData[$treename])) {
+                if($fixName === true) {
+                    foreach($data as $key => $value) {
+                        if(isset($this->viewData[$treename][$key])) {
+                            array_push($this->viewData[$treename][$key], $value);
+                        } else {
+                            $this->viewData[$treename][$key] = $value;
+                        }
+                    }
+                } else {
+                    array_push($this->viewData[$treename], $data);
+                }
+            } else {
+                $this->viewData[$treename] = $data;
+            }
         }
 
         public function getIp() {

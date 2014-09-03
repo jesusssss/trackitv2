@@ -6,13 +6,17 @@ body {
     background: #F1F1F1;
 }
 
-h1      { font-size: 24px; color: #444; font-family: "Forte", Arial, sans-serif; }
-h2      { font-size: 20px; color: #333; font-family: "Forte", Arial, sans-serif; }
-h3      { font-size: 18px; color: #666; font-family: "Forte", Arial, sans-serif; }
-h4      { font-size: 16px; color: #999; font-family: "Forte", Arial, sans-serif; }
+h1      { font-size: 40px; color: #444; font-family: "Forte", Arial, sans-serif; }
+h2      { font-size: 26px; color: #333; font-family: "Forte", Arial, sans-serif; }
+h3      { font-size: 22px; color: #666; font-family: "Forte", Arial, sans-serif; }
+h4      { font-size: 18px; color: #999; font-family: "Forte", Arial, sans-serif; }
 
 a       { color: #333; text-decoration: none; }
 a:hover { color: #666; text-decoration: none; }
+
+table {
+  width: 100%;
+}
 
 td {
   vertical-align: middle;
@@ -291,6 +295,9 @@ section.content {
   margin-left: 290px;
   padding: 20px;
   width: 940px;
+  h1 {
+    margin-bottom: 10px;
+  }
   ul.statList {
     width: 100%;
     li {
@@ -338,6 +345,52 @@ section.content {
       height: 0;
       clear: both;
     }
+  }
+  #list table tr td {
+    text-align: left;
+  }
+  #list table tr td:last-of-type {
+    text-align: center;
+  }
+  #list table tr td .domLink {
+    color: @darkGreen;
+    &:hover {
+      color: @lightGreen;
+    }
+  }
+  #list table tr th:last-of-type {
+    text-align: center;
+  }
+  #list table tr td, #list table tr th {
+    padding: 10px 0px;
+  }
+  #list table tr th {
+    font-weight: bold;
+    text-align: left;
+  }
+  #list table thead tr {
+    border-bottom: 3px solid #fff;
+  }
+  #list table tbody tr {
+    border-bottom: 1px solid #fff;
+  }
+  #list a {
+    color: #fff;
+    cursor: pointer;
+  }
+  form input[type='text'], form input[type='password'] {
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-style: italic;
+    padding: 15px;
+    background: #384C62;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5) inset;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
   }
 
 }
