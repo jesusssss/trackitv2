@@ -6,25 +6,23 @@
         Control pannel
     </title>
     <meta charset="UTF-8"/>
+    <!-- Font Open Sans import -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
     <!-- Css includes -->
     <link rel="stylesheet" href="/view/_generel/css/reset.css"/>
-    <link rel="stylesheet" href="<?php echo $config["dir"]; ?>css/styles.css"/>
+    <link rel="stylesheet" href="<?php echo $config["dir"]; ?>css/font-awesome.min.css"/>
+    <link rel="stylesheet/less" type="text/css" href="<?php echo $config["dir"]; ?>css/styles.less"/>
     <!-- Js includes -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/view/_generel/js/less.js"></script>
     <script src="<?php echo $config["dir"]; ?>js/toolbox.js"></script>
 </head>
 <body>
         <?php
         //If a user isset, and the user is an admin user
         if($user["admin"] == 1){
-            //Get the header layout
-            include("layout/header.phtml");
-
-            //Get the real content (Mostly from DB)
-            include($writemaincontent);
-
-            //Get the footer layout
-            include("layout/footer.phtml");
+            //Get the default layout
+            include("default.phtml");
         } else {
             //Tell the user to login with the login layout
             include("login.phtml");

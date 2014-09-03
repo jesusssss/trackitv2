@@ -1,1 +1,81 @@
-<h1>Baademedia cpanel</h1>
+<div id="top">
+    <div id="logo">
+        <a href="/">
+            c.Panel
+        </a>
+    </div>
+    <div id="features">
+        <ul>
+            <li>
+                <a href="/messages">
+                    <i class="fa fa-envelope"></i>Messages
+                </a>
+            </li>
+            <li>
+                <a href="/logout" style="color: #C74F5A;">
+                    <i class="fa fa-power-off"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<nav id="navigation">
+    <div id="userSection">
+        <table>
+            <tr>
+                <td>
+                    <div class="profileImage">
+                        <img src="<?php echo $config["dir"]; ?>img/profileImage.png" alt="Profile image"/>
+                    </div>
+                </td>
+                <td>
+                    <div id="profileActions">
+                        <div id="displayName">
+                            <?php echo $user["firstname"]." ".$user["lastname"]; ?>
+                        </div>
+                        <div id="settings">
+                            <a href="/settings">
+                                <i class="fa fa-cog"></i> Settings
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <ul>
+        <li>
+            <a href="/">
+                <i class="fa fa-pie-chart"></i>Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="/domains">
+                <i class="fa fa-paper-plane"></i>Domains
+            </a>
+        </li>
+    </ul>
+
+    <!-- Menu scrpt for active menu points -->
+    <script>
+        $(document).ready(function() {
+
+            var $url = window.location.pathname;
+
+            $("nav ul li a").each(function() {
+               if($(this).attr("href") == $url) {
+                   $(this).addClass("active");
+                   $(this).closest("li").addClass("active");
+               }
+            });
+
+        });
+    </script>
+</nav>
+<section class="content">
+    <?php
+    include($writemaincontent);
+    ?>
+</section>
+
+<div class="clear"></div>

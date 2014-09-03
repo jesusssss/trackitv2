@@ -8,6 +8,5 @@ namespace Controller\Error {
         public function __construct() {
             BaseController::get()->render("404");
         }
-
     }
 }

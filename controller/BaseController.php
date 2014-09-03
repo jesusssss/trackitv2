@@ -58,7 +58,7 @@ namespace Controller {
 
         public function pget($get) {
             if(isset($_REQUEST[$get]) && !empty($_REQUEST[$get])) {
-                return $_REQUEST[$get];
+                return preg_replace('/\s+/', '', $_REQUEST[$get]);
             } else {
                 return false;
             }

@@ -1,11 +1,38 @@
-<h2>Hej, <?php echo $user["firstname"]." ".$user["lastname"]. " @ ".$user["email"]; ?> </h2>
-<h3>
-    <?php
-        if($user["admin"] == 1) {
-            echo "Du er admin";
-        } else {
-            echo "Du er ikke admin";
-        }
-    ?>
-</h3>
-<a href="/logout">Logout</a>
+<h1>Welcome to the dashboard</h1>
+<br/>
+<ul class="statList">
+    <li class="darkRed">
+        <div class="icon">
+            <i class="fa fa-line-chart"></i>
+        </div>
+        <div class="info">
+            <div>8</div>
+            <div>Domains running</div>
+        </div>
+    </li>
+    <li class="oceanBlue">
+        <div class="icon">
+            <i class="fa fa-users"></i>
+        </div>
+        <div class="info">
+            <div>39</div>
+            <div>Users created</div>
+        </div>
+    </li>
+    <li class="brown">
+        <div class="icon">
+            <i class="fa fa-eye"></i>
+        </div>
+        <div class="info">
+            <div>485</div>
+            <div>Unique views</div>
+        </div>
+    </li>
+</ul>
+<br/><br/>
+<div class="globalMessage">
+    <h2>Message pushed to all administrations: (Update, notices, etc)</h2>
+    <div>
+        Make it here
+    </div>
+</div>

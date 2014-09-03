@@ -6,14 +6,14 @@
 
         <div id="error" style="display: none;">
             <h1 style="font-size: 22px; color: #B54A52;">
-                Wrong information - please try again:
+                <?php echo $error["msg"]; ?>
             </h1>
         </div>
 
         <form method="post">
             <div>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="User-username"/>
+                <input type="text" id="username" autofocus="autofocus" name="User-username"/>
                 <label for="password">Password</label>
                 <input type="password" id="password" name="User-password"/>
             </div>

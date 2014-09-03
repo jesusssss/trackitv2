@@ -37,6 +37,15 @@ namespace Controller\User {
             $username = BaseController::get()->pget("User-username");
             $password = BaseController::get()->pget("User-password");
 
+            if(empty($username) || empty($password)) {
+                BaseController::get()->assign(
+                    "error", array(
+                        "msg" => "Username or password not correctly filled out:"
+                    )
+                );
+                return false;
+            }
+
             //TODO - der kan logges ind kun med password
             $user = BaseController::get()->em->createQuery("SELECT u FROM Model\\User\\User u WHERE u.username = :username AND u.password = :password");
             $user->setParameters(array(
@@ -44,11 +53,11 @@ namespace Controller\User {
                 "password" => $password
             ));
 
-            $result = $user->getSingleResult();
+            $result = $user->getResult();
 
 
             if($result) {
-                $_SESSION["user"] = $result->getId();
+                $_SESSION["user"] = $result[0]->getId();
                 BaseController::get()->redirect("/");
             } else {
                 BaseController::get()->assign(
