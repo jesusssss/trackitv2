@@ -5,8 +5,8 @@ namespace Controller\Home {
 
     class HomeController {
 
-        public function index() {
-            BaseController::get()->render("index");
+        public function render($page) {
+            BaseController::get()->render($page);
         }
     }
 }

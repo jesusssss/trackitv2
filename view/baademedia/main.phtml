@@ -1,0 +1,35 @@
+<div id="top">
+    <div id="logo">
+        <a href="/">
+            Logo
+        </a>
+    </div>
+    <nav id="navigation">
+        <?php
+        include("menu.phtml");
+        ?>
+    </nav>
+</div>
+<!-- TODO Make navigation allways come from system CMS -->
+<section id="content">
+    <?php
+        include($writemaincontent);
+    ?>
+</section>
+<!-- If Messages available - show it -->
+<?php if(isset($config["msg"])) {
+?>
+<script>
+    $(function() {
+        setTimeout(function() {
+           $("#messages").slideToggle();
+        }, 250);
+        setTimeout(function() {
+            $("#messages").slideToggle();
+        }, 6000);
+    });
+</script>
+<?php
+    }
+?>
+<div class="clear"></div>

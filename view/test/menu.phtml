@@ -1,0 +1,22 @@
+<ul>
+    <li>
+        <a href="/">
+            <i class="fa fa-pie-chart"></i>Frontpage
+        </a>
+    </li>
+</ul>
+<!-- Menu scrpt for active menu points -->
+<script>
+    $(document).ready(function() {
+
+        var $url = window.location.pathname;
+
+        $("nav ul li a").each(function() {
+            if($(this).attr("href") == $url) {
+                $(this).addClass("active");
+                $(this).closest("li").addClass("active");
+            }
+        });
+
+    });
+</script>
