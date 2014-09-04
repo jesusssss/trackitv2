@@ -38,11 +38,7 @@ namespace Controller\User {
             $password = BaseController::get()->pget("User-password");
 
             if(empty($username) || empty($password)) {
-                BaseController::get()->assign(
-                    "error", array(
-                        "msg" => "Username or password not correctly filled out:"
-                    )
-                );
+                BaseController::get()->assign("config", array("msg" => "Username or password not correctly filled out:"), true);
                 return false;
             }
 
@@ -60,12 +56,7 @@ namespace Controller\User {
                 $_SESSION["user"] = $result[0]->getId();
                 BaseController::get()->redirect("/");
             } else {
-                BaseController::get()->assign(
-                    "error",
-                    array(
-                        "msg" => "Wrong information, please try again:"
-                    )
-                );
+                BaseController::get()->assign("config", array("msg" => "Wrong information, please try again:"), true);
                 return false;
             }
         }

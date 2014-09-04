@@ -17,6 +17,9 @@ namespace Model\Domains {
         /** @Column(type="string") **/
         protected $dbname;
 
+        /** @Column(type="string") */
+        protected $dbUser;
+
         /** @Column(type="string") **/
         protected $dbpassword;
 
@@ -38,6 +41,24 @@ namespace Model\Domains {
         {
             return $this->dbname;
         }
+
+        /**
+         * @param mixed $dbUser
+         */
+        public function setDbUser($dbUser)
+        {
+            $this->dbUser = $dbUser;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getDbUser()
+        {
+            return $this->dbUser;
+        }
+
+
 
         /**
          * @param mixed $dbpassword

@@ -6,7 +6,7 @@
 
         <div id="error" style="display: none;">
             <h1 style="font-size: 22px; color: #B54A52;">
-                <?php echo $error["msg"]; ?>
+                <?php echo $config["msg"]; ?>
             </h1>
         </div>
 
@@ -22,7 +22,7 @@
 
         <script type="text/javascript">
             $(function() {
-               <?php if(isset($error)) {
+               <?php if(isset($config["msg"])) {
                 ?>
                 /* If Error We show error msg */
                 setTimeout(function() {

@@ -31,6 +31,19 @@ a:focus, input:focus, textarea:focus {
     outline: 0;
 }
 
+/* Global Messages */
+
+#messages {
+  float: left;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 15px;
+  color: @brown;
+  margin-top: 8px;
+  margin-left: 185px;
+}
+
+/* Global messages END */
+
 
 /* Font Assert */
 @font-face {
@@ -378,6 +391,15 @@ section.content {
     color: #fff;
     cursor: pointer;
   }
+
+  form label {
+    margin-top: 15px;
+    display: inline-block;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
   form input[type='text'], form input[type='password'] {
     border: none;
     width: 100%;
@@ -391,6 +413,18 @@ section.content {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
+  }
+
+  form input[type='submit'] {
+    background: @darkGreen;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    font-family: 'Forte', Arial, sans-serif;
+    font-size: 16px;
+    &:hover {
+      background: @lightGreen;
+    }
   }
 
 }

@@ -4,6 +4,13 @@
             c.Panel
         </a>
     </div>
+    <div id="messages" style="display: none;">
+        <?php
+            if(isset($config["msg"])) {
+                echo $config["msg"];
+            }
+        ?>
+    </div>
     <div id="features">
         <ul>
             <li>
@@ -74,8 +81,23 @@
 </nav>
 <section class="content">
     <?php
-    include($writemaincontent);
+        include($writemaincontent);
     ?>
 </section>
-
+<!-- If Messages available - show it -->
+<?php if(isset($config["msg"])) {
+?>
+<script>
+    $(function() {
+        setTimeout(function() {
+           $("#messages").slideToggle();
+        }, 250);
+        setTimeout(function() {
+            $("#messages").slideToggle();
+        }, 6000);
+    });
+</script>
+<?php
+    }
+?>
 <div class="clear"></div>
