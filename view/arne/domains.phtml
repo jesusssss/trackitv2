@@ -1,0 +1,80 @@
+<h1>Domains administration</h1>
+<ul class="statList">
+    <li class="darkRed">
+        <div class="icon">
+            <i class="fa fa-line-chart"></i>
+        </div>
+        <div class="info">
+            <div><?php echo $domains["total"]; ?></div>
+            <div>Domains running</div>
+        </div>
+    </li>
+</ul>
+<br/>
+<div id="tabs">
+    <ul>
+        <li><a href="#list">List</a></li>
+        <li><a href="#add">Add</a></li>
+        <li><a href="#delete">Delete</a></li>
+        <li style="<?php if(isset($_GET["Domain-edit"])) { echo "display: block;"; } else { echo "display: none;"; } ?>"><a href="#edit">Edit</a></li>
+    </ul>
+    <div id="list">
+        <form id="searchDomains">
+            <input type="text" placeholder="Search domains..."/>
+        </form>
+        <table id="domains">
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Database</th>
+                    <th>Theme</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            usort($domains["domains"], function($a, $b) {
+                return $a['uri'] - $b['uri'];
+            });
+                foreach($domains["domains"] as $domain) {
+            ?>
+                <tr>
+                    <td>
+                        <a href="http://<?php echo $domain["uri"]; ?>" data-value="<?php echo $domain["uri"]; ?>" class="domLink" target="_blank">
+                            <?php echo $domain["uri"]; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $domain["dbname"]; ?></td>
+                    <td><?php echo $domain["theme"]; ?></td>
+                    <td><a href="/domains?Domain-edit=<?php echo $domain["id"]; ?>&tab=#edit"><i class="fa fa-cog"></i></a> / <a style="color: #C74F5A;" onclick="return confirm('You sure?');" href="/domains/delete?id=<?php echo $domain["id"]; ?>"><i class="fa fa-times"></i></a></td>
+                </tr>
+            <?php
+                }
+            ?>
+            </tbody>
+        </table>
+    </div>
+    <div id="add">
+        <form method="post">
+            <label for="domainname">Domain name</label>
+            <input type="text" id="domainname" name="Domain-domainName" required="required"/>
+            <label for="database">Database name</label>
+            <input type="text" id="database" name="Domain-database" required="required"/>
+            <label for="databaseUser">Database user</label>
+            <input type="text" id="databaseUser" name="Domain-databaseUser" required="required"/>
+            <label for="databasePassword">Database password</label>
+            <input type="text" id="databasePassword" name="Domain-databasePassword" required="required"/>
+            <label for="databaseCopy">Copy database</label>
+            <input type="text" value="baademedia_template" id="databaseCopy" name="Domain-databaseCopy" required="required"/>
+            <label for="theme">Theme</label>
+            <input type="text" id="theme" name="Domain-theme"  required="required"/>
+            <input type="submit" name="Action-Cpanel-createDomain" value="Create it"/>
+        </form>
+    </div>
+    <div id="delete">
+        Tab 3
+    </div>
+    <div id="edit">
+        Tab 3
+    </div>
+</div>

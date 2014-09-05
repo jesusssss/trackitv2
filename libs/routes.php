@@ -1,5 +1,7 @@
 <?php
 
 use Controller\Router\RouterController as Router;
-Router::create('*', 'MenuController@getMenu');
-Router::create('/logout', 'UserController@logout');
+if(\Controller\BaseController::get()->db->theme != '_noTheme') {
+    Router::create('*', 'MenuController@getMenu');
+    Router::create('/logout', 'UserController@logout');
+}
