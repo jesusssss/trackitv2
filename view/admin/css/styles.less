@@ -1,0 +1,444 @@
+html, body { margin: 0; padding: 0; height: 100%; }
+
+body {
+    font-size: 14px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background: #F1F1F1;
+}
+
+h1      { font-size: 40px; color: #444; font-family: "Forte", Arial, sans-serif; }
+h2      { font-size: 26px; color: #333; font-family: "Forte", Arial, sans-serif; }
+h3      { font-size: 22px; color: #666; font-family: "Forte", Arial, sans-serif; }
+h4      { font-size: 18px; color: #999; font-family: "Forte", Arial, sans-serif; }
+
+a       { color: #333; text-decoration: none; }
+a:hover { color: #666; text-decoration: none; }
+
+table {
+  width: 100%;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+a:focus, input:focus, textarea:focus {
+    outline: 0;
+}
+
+/* Global Messages */
+
+#messages {
+  float: left;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 15px;
+  color: @brown;
+  margin-top: 8px;
+  margin-left: 185px;
+}
+
+/* Global messages END */
+
+
+/* Font Assert */
+@font-face {
+    font-family: 'Forte';
+    src: url('../fonts/ForteMT.eot?#iefix') format('embedded-opentype'),  url('../fonts/ForteMT.woff') format('woff'), url('../fonts/ForteMT.ttf')  format('truetype'), url('../fonts/ForteMT.svg#ForteMT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* LESS COLOR DEFINES */
+
+@lightBlue: #46586E;
+@darkBlue: #384C62;
+@oceanBlue: #66AFBC;
+@lightGreen: #53C86D;
+@darkGreen: #58B76D;
+@lightRed: #C74F5A;
+@darkRed: #B34C56;
+@brown: #B4744D;
+
+.lightBlue {
+  background: @lightBlue;
+}
+.darkBlue {
+  background: @darkBlue;
+}
+.lightGreen {
+  background: @lightGreen;
+}
+.darkGreen {
+  background: @darkGreen;
+}
+.lightRed {
+  background: @lightRed;
+}
+.darkRed {
+  background: @darkRed;
+}
+.oceanBlue {
+  background: @oceanBlue;
+}
+.brown {
+  background: @brown;
+}
+
+/* COLOR DEFINES END */
+
+/* PURE LOGIN STYLES */
+#loginBackground {
+    width: 100%;
+    height: 100%;
+    background: #46586E;
+}
+
+#loginBackground .wrapper {
+    padding-top: 80px;
+}
+
+#loginBackground h1 {
+    font-family: 'Forte', Arial, sans-serif;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+#loginBackground form {
+    background: #384C62;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+}
+
+#loginBackground form div {
+    padding: 15px;
+}
+
+#loginBackground form input[type='text'] {
+    margin-bottom: 15px;
+}
+
+#loginBackground form label {
+    font-family: 'Forte', Arial, sans-serif;
+    font-size: 25px;
+    color: #fff;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+#loginBackground form input[type='text'], #loginBackground form input[type='password'] {
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-style: italic;
+    padding: 15px;
+    background: #384C62;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5) inset;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#loginBackground form input[type='submit'] {
+    display: block;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    background: #58B76D;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #fff;
+    font-family: 'Forte', Arial, sans-serif;
+    font-size: 28px;
+    border: none;
+    transition: background 0.5s;
+}
+
+#loginBackground form input[type='submit']:hover {
+    background: #53C86D;
+    transition: background 0.5s;
+}
+
+/* LOGIN END */
+
+/* Admin design start */
+
+#top {
+  background: @lightBlue;
+  width: 100%;
+  padding: 14px 0px;
+  #logo {
+    float:left;
+    margin-left: 30px;
+    a {
+      font-size: 30px;
+      color: #fff;
+      font-family: 'Forte', Arial, sans-serif;
+    }
+  }
+  #features {
+    float: right;
+    margin-top: 5px;
+    margin-right: 30px;
+    ul {
+      li {
+        float: left;
+        margin-left: 20px;
+        a {
+          font-size: 16px;
+          color: #fff;
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+      &:last-of-type {
+        &:after {
+          display: block;
+          clear: both;
+          content: " ";
+          width: 0;
+          height: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+  &:after {
+    display: block;
+    clear: both;
+    content: " ";
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+nav#navigation {
+  position: fixed;
+  left: 0;
+  top: 58px;
+  width: 290px;
+  height: 100%;
+  background: @lightBlue;
+  #userSection {
+    padding: 20px 15px;
+    background: @darkGreen;
+    width: 100%;
+    box-sizing: border-box;
+    .profileImage {
+      border-radius: 50%;
+      behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+      background: #fff;
+      overflow: hidden;
+      width: 80px;
+      height: 80px;
+      text-align: center;
+    }
+    #profileActions {
+      padding-left: 15px;
+      #displayName {
+        color: #305328;
+        font-size: 18px;
+        font-family: 'Forte', Arial, sans-serif;
+      }
+      #settings {
+        a {
+          font-size: 12px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  ul {
+    li {
+      border-bottom: 1px solid #ccc;
+      a {
+        color: #ccc;
+        display: block;
+        width: 100%;
+        font-family: 'Forte', Arial, sans-serif;
+        height: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+        background: transparent;
+        transition: all 0.3s;
+        i {
+          font-size: 20px;
+          padding: 20px;
+          margin-right: 10px;
+        }
+        &:hover {
+          color: #fff;
+          background: @darkBlue;
+          transition: all 0.3s;
+          i {
+            color: #fff;
+            transition: all 0.3s;
+          }
+        }
+        &.active {
+          color: #fff;
+          background: @darkBlue;
+          i {
+            color: @lightGreen;
+          }
+        }
+      }
+    }
+    &:first-of-type {
+      border-top: 1px solid #ccc;
+    }
+  }
+}
+
+section.content {
+  margin-left: 290px;
+  padding: 20px;
+  width: 940px;
+  h1 {
+    margin-bottom: 10px;
+  }
+  ul.statList {
+    width: 100%;
+    li {
+      float:left;
+      width: 32.3333333%;
+      margin-right: 1.5%;
+      padding: 10px;
+      box-sizing: border-box;
+      color: #fff;
+      font-family: 'Forte', Arial, sans-serif;
+      div.icon {
+        font-size: 65px;
+        float:left;
+        width: 30%;
+      }
+      div.info {
+        float:right;
+        width: 70%;
+        text-align: center;
+        div {
+          text-align: center;
+          font-size: 18px;
+          &:first-of-type {
+            font-size: 45px;
+          }
+        }
+        &:after {
+          content: " ";
+          clear: both;
+          display: block;
+          width: 0;
+          height: 0;
+          visibility: hidden;
+        }
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    &:after {
+      content: " ";
+      visibility: none;
+      display: block;
+      width: 0;
+      height: 0;
+      clear: both;
+    }
+  }
+  #list table tr td {
+    text-align: left;
+  }
+  #list table tr td:last-of-type {
+    text-align: center;
+  }
+  #list table tr td .domLink {
+    color: @darkGreen;
+    &:hover {
+      color: @lightGreen;
+    }
+  }
+  #list table tr th:last-of-type {
+    text-align: center;
+  }
+  #list table tr td, #list table tr th {
+    padding: 10px 0px;
+  }
+  #list table tr th {
+    font-weight: bold;
+    text-align: left;
+  }
+  #list table thead tr {
+    border-bottom: 3px solid #fff;
+  }
+  #list table tbody tr {
+    border-bottom: 1px solid #fff;
+  }
+  #list a {
+    color: #fff;
+    cursor: pointer;
+  }
+
+  form label {
+    margin-top: 15px;
+    display: inline-block;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  form input[type='text'], form input[type='password'] {
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-style: italic;
+    padding: 15px;
+    background: #384C62;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5) inset;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  form input[type='submit'] {
+    background: @darkGreen;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    font-family: 'Forte', Arial, sans-serif;
+    font-size: 16px;
+    &:hover {
+      background: @lightGreen;
+    }
+  }
+
+}
+
+/* Admin design end */
+
+
+
+
+.clear {
+    clear: both;
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    background: transparent;
+}

@@ -1,0 +1,78 @@
+<div id="top">
+    <div id="logo">
+        <a href="/">
+            c.Panel
+        </a>
+    </div>
+    <div id="messages" style="display: none;">
+        <?php
+            if(isset($config["msg"])) {
+                echo $config["msg"];
+            }
+        ?>
+    </div>
+    <div id="features">
+        <ul>
+            <li>
+                <a href="/messages">
+                    <i class="fa fa-envelope"></i>Messages
+                </a>
+            </li>
+            <li>
+                <a href="/logout" style="color: #C74F5A;">
+                    <i class="fa fa-power-off"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<nav id="navigation">
+    <div id="userSection">
+        <table>
+            <tr>
+                <td>
+                    <div class="profileImage">
+                        <img src="<?php echo $config["dir"]; ?>img/profileImage.png" alt="Profile image"/>
+                    </div>
+                </td>
+                <td>
+                    <div id="profileActions">
+                        <div id="displayName">
+                            <?php echo $user["firstname"]." ".$user["lastname"]; ?>
+                        </div>
+                        <div id="settings">
+                            <a href="/admin/settings">
+                                <i class="fa fa-cog"></i> Settings
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <?php
+        include("menu.phtml");
+    ?>
+</nav>
+<section class="content">
+    <?php
+        include($writemaincontent);
+    ?>
+</section>
+<!-- If Messages available - show it -->
+<?php if(isset($config["msg"])) {
+?>
+<script>
+    $(function() {
+        setTimeout(function() {
+           $("#messages").slideToggle();
+        }, 250);
+        setTimeout(function() {
+            $("#messages").slideToggle();
+        }, 6000);
+    });
+</script>
+<?php
+    }
+?>
+<div class="clear"></div>

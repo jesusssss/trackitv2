@@ -106,12 +106,33 @@ namespace Controller\Router {
         }
 
         public static function getUriAction() {
-            $uri = (isset($_GET["uri"]) ? "/" . trim($_GET["uri"],'/') : '/');
+            $result = array();
+            foreach(self::getUri() as $key => $value) {
+                if($value == '*') {
+                    if(is_array(self::getMethods()[$key][0])) {
+                        $namespace = explode("Controller", self::getMethods()[$key][0][0]);
+                        $controller = "Controller\\".$namespace[0]."\\".self::getMethods()[$key][0][0];
+                        $function = self::getMethods()[$key][0][1];
+                        $parse = self::getMethods()[$key][1];
+                        $data = array($controller, $function, $parse);
+                    } else {
+                        $namespace = explode("Controller", self::getMethods()[$key][0]);
+                        $controller = "Controller\\".$namespace[0]."\\".self::getMethods()[$key][0];
+                        if(is_array(self::getMethods()[$key])) {
+                            $function = self::getMethods()[$key][1];
+                            $data = array($controller, $function);
+                        } else {
+                            $data = $controller;
+                        }
+                    }
+                    $result[] = $data;
+                }
+            }
 
+            $uri = (isset($_GET["uri"]) ? "/" . trim($_GET["uri"],'/') : '/');
             if(in_array($uri, self::getUri())) {
-                $result = array();
                 foreach(self::getUri() as $key => $value) {
-                    if($uri == $value || $value == '*') {
+                    if($uri == $value) {
                         if(is_array(self::getMethods()[$key][0])) {
                             $namespace = explode("Controller", self::getMethods()[$key][0][0]);
                             $controller = "Controller\\".$namespace[0]."\\".self::getMethods()[$key][0][0];
@@ -131,10 +152,10 @@ namespace Controller\Router {
                         $result[] = $data;
                     }
                 }
-
             } else {
                 $result[] = array("Controller\\Error\\ErrorController");
             }
+
             return $result;
         }
 

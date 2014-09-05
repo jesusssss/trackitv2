@@ -30,6 +30,9 @@ namespace Controller {
             $ip = $this->getIp();
 
             $url = $this->getUrlAndRequests();
+            if(isset($_GET["theme"]) == "admin") {
+                $this->db->theme = "admin";
+            }
 
             $variables = array(
                 "url" => $url[0],
@@ -82,6 +85,10 @@ namespace Controller {
 
         public function redirect($toRoute) {
             header("Location: ".$toRoute);
+        }
+
+        public function refresh() {
+            $this->redirect($_SERVER['REQUEST_URI']);
         }
 
         public function getUser() {

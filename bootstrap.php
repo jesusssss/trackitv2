@@ -12,8 +12,10 @@ require_once("vendor/autoload.php");
 
 /* Start the instance of BaseController (Singleton) so we can find the correct dir */
 
+/* Global routs */
+require_once(LIBS."routes.php");
+
 /* Routes loading Router::('/', 'HomeController@index') */
 require_once(VIEW.\Controller\BaseController::get()->db->theme."/php/routes.php");
 
-/* Global routs */
-require_once(LIBS."routes.php");
+\Controller\Router\RouterController::submit();

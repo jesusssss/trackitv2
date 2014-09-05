@@ -1,10 +1,18 @@
 <ul>
-    <li>
-        <a href="/">
-            <i class="fa fa-pie-chart"></i>Frontpage
-        </a>
-    </li>
+    <?php
+
+    foreach($menu as $point) {
+        ?>
+        <li>
+            <a href="<?php echo $point["link"]; ?>">
+                <i class="<?php echo $point["icon"]; ?>"></i><?php echo $point["title"]; ?>
+            </a>
+        </li>
+    <?php
+    }
+    ?>
 </ul>
+
 <!-- Menu scrpt for active menu points -->
 <script>
     $(document).ready(function() {

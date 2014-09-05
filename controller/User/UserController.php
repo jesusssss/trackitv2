@@ -54,7 +54,7 @@ namespace Controller\User {
 
             if($result) {
                 $_SESSION["user"] = $result[0]->getId();
-                BaseController::get()->redirect("/");
+                BaseController::get()->refresh();
             } else {
                 BaseController::get()->assign("config", array("msg" => "Wrong information, please try again:"), true);
                 return false;
