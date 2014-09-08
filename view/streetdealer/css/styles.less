@@ -1,0 +1,99 @@
+html, body { margin: 0; padding: 0; height: 100%; }
+
+body {
+  font-size: 14px;
+  font-family: 'Open Sans', Arial, sans-serif;
+  background: #F1F1F1;
+}
+
+h1      { font-size: 40px; color: #444; font-family: "Open Sans", Arial, sans-serif; }
+h2      { font-size: 26px; color: #333; font-family: "Open Sans", Arial, sans-serif; }
+h3      { font-size: 22px; color: #666; font-family: "Open Sans", Arial, sans-serif; }
+h4      { font-size: 18px; color: #999; font-family: "Open Sans", Arial, sans-serif; }
+
+a       { color: #333; text-decoration: underline; }
+a:hover { color: #666; text-decoration: none; }
+
+table {
+  width: 100%;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+a:focus, input:focus, textarea:focus {
+  outline: 0;
+}
+
+/* LESS COLOR DEFINES */
+@lightBlue: #46586E;
+@darkBlue: #384C62;
+@oceanBlue: #66AFBC;
+@lightGreen: #53C86D;
+@darkGreen: #58B76D;
+@lightRed: #C74F5A;
+@darkRed: #B34C56;
+@brown: #B4744D;
+
+.lightBlue {
+  background: @lightBlue;
+}
+.darkBlue {
+  background: @darkBlue;
+}
+.lightGreen {
+  background: @lightGreen;
+}
+.darkGreen {
+  background: @darkGreen;
+}
+.lightRed {
+  background: @lightRed;
+}
+.darkRed {
+  background: @darkRed;
+}
+.oceanBlue {
+  background: @oceanBlue;
+}
+.brown {
+  background: @brown;
+}
+
+/* COLOR DEFINES END */
+
+#top {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  background: #ccc;
+}
+
+#logo {
+  float:left;
+}
+
+#navigation {
+  float: right;
+}
+
+#top:after {
+  display: block;
+  clear: both;
+  content: " ";
+}
+
+#content {
+  background: #999;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  h1 {
+    color: #fff;
+  }
+}

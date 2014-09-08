@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Skal laves så den får fra admin -->
+    <title>
+        My web title
+    </title>
+    <meta charset="UTF-8"/>
+    <!-- Css includes -->
+    <link rel="stylesheet" href="/view/_generel/css/reset.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet/less" type="text/css" href="<?php echo $config["dir"]; ?>css/styles.less"/>
+    <!-- Js includes -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="/view/_generel/js/less.js"></script>
+    <script src="<?php echo $config["dir"]; ?>js/toolbox.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <?php
+    include("main.phtml");
+    ?>
+</div>
+</body>
+</html>

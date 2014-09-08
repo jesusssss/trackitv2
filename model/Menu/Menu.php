@@ -2,11 +2,18 @@
 
 namespace Model\Menu {
 
+    use Model\Cms\Cms;
+
     /**
      * @Entity @Table(name="Menu")
      **/
 
     class Menu {
+
+        /** @OneToOne(targetEntity="Model\Cms\Cms")
+         * @JoinColumn(name="id", referencedColumnName="selfref")
+         **/
+        protected $cms;
 
         /** @Id @Column(type="integer") @GeneratedValue **/
         protected $id;
