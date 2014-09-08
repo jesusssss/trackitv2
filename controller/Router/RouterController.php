@@ -67,7 +67,6 @@ namespace Controller\Router {
         }
 
         public static function submit() {
-            /* Run function based on URI */
             if(self::getPostAction($_POST)) {
                 self::runFunction(self::getPostAction($_POST));
             }

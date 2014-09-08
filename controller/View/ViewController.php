@@ -46,6 +46,10 @@ namespace Controller\View {
                 /*
                  * If not - show the real page and extract the data to it so its usable as variables on that page.
                  */
+
+                /* Dine content */
+                $writemaincontent =
+
                 ob_start();
                     extract($this->data);
                     $writemaincontent = VIEW.BaseController::get()->db->theme."/".$view.".phtml";

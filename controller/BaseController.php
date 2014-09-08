@@ -97,7 +97,6 @@ namespace Controller {
                 $user = array(
                     "id" => $user->getId(),
                     "username" => $user->getUsername(),
-                    "password" => $user->getPassword(),
                     "firstname" => $user->getFirstName(),
                     "lastname" => $user->getLastName(),
                     "email" => $user->getEmail(),

@@ -1,0 +1,51 @@
+<h1>Pages</h1>
+<div id="tabs">
+    <ul>
+        <li><a href="#list">Pages</a></li>
+        <li><a href="#add">Add</a></li>
+        <li style="<?php if(isset($_GET["page-edit"])) { echo "display: block;"; } else { echo "display: none;"; } ?>"><a href="#edit">Edit</a></li>
+    </ul>
+    <div id="list">
+        <form id="searchDomains">
+            <input type="text" placeholder="Search pages..."/>
+        </form>
+        <table id="domains">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Edit/Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach($menu as $point) {
+                ?>
+                <tr>
+                    <td>
+                        #<?php echo $point["id"]; ?>
+                    </td>
+                    <td><?php echo $point["title"]; ?></td>
+                    <td><?php echo $point["link"]; ?></td>
+                    <td><a href="/admin/cms?page-edit=<?php echo $point["id"]; ?>&tab=#edit"><i class="fa fa-cog"></i></a> / <a style="color: #C74F5A;" onclick="return confirm('You sure?');" href="/admin/cms/delete?id=<?php echo $point["id"]; ?>"><i class="fa fa-times"></i></a></td>
+                </tr>
+            <?php
+            }
+            ?>
+            </tbody>
+        </table>
+    </div>
+    <div id="add">
+        <form method="post">
+            <label for="pagetitle">Page title</label>
+            <input type="text" id="pagetitle" name="Menu-pageTitle" required="required"/>
+            <label for="pagelink">Page link</label>
+            <input type="text" id="pagelink" name="Menu-pageLink" required="required"/>
+            <input type="submit" name="Action-Menu-create" value="Create it"/>
+        </form>
+    </div>
+    <div id="edit">
+        Edit tab
+    </div>
+</div>

@@ -14,3 +14,4 @@ use Controller\Router\RouterController as Router;
 
 /* All pages */
 Router::create('/', 'HomeController@render', 'frontpage');
+Router::create('/cms', 'HomeController@render' , 'pages');

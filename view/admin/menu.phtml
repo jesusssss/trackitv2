@@ -1,16 +1,24 @@
 <ul>
-    <?php
-
-    foreach($menu as $point) {
-    ?>
-        <li>
-            <a href="/admin<?php echo $point["link"]; ?>">
-                <i class="<?php echo $point["icon"]; ?>"></i><?php echo $point["title"]; ?>
-            </a>
-        </li>
-    <?php
-    }
-    ?>
+    <li>
+        <a href="/admin">
+            <i class="fa fa-pie-chart"></i>Dashboard
+        </a>
+    </li>
+    <li>
+        <a href="/admin/cms">
+            <i class="fa fa-pagelines"></i> Pages
+        </a>
+    </li>
+    <li>
+        <a href="/admin/filearchive">
+            <i class="fa fa-cloud"></i>File archive
+        </a>
+    </li>
+    <li>
+        <a href="/admin/settings">
+            <i class="fa fa-plug"></i>Settings
+        </a>
+    </li>
 </ul>
 
 <!-- Menu scrpt for active menu points -->
