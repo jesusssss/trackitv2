@@ -15,7 +15,7 @@ namespace Controller\Database {
 
         private function __construct() {
             $paths = array(MODEL);
-            $isDevMode = false;
+            $isDevMode = true;
 
             // the connection configuration
             $dbParams = array(
@@ -56,7 +56,7 @@ namespace Controller\Database {
          */
         protected function getRealConnection($dbName, $dbUser, $dbPassword) {
             $paths = array(MODEL);
-            $isDevMode = false;
+            $isDevMode = true;
 
             // the connection configuration
             $dbParams = array(

@@ -8,6 +8,7 @@ namespace Controller\View {
 
     class ViewController {
         private $data = array();
+        private $view;
 
         public function __construct($data = array()) {
             //Construct parrent (Basecontroller)
@@ -33,7 +34,7 @@ namespace Controller\View {
          * since this is where we have our layout stored
          * @param $view
          */
-        public function render($view) {
+        public function render() {
 
             /*
              * If GET key "getdata" isset, show all our current variables sent to this page.
@@ -46,13 +47,13 @@ namespace Controller\View {
                 /*
                  * If not - show the real page and extract the data to it so its usable as variables on that page.
                  */
-
                 /* Dine content */
-                $writemaincontent =
-
                 ob_start();
+                    if(!empty($this->view)) {
+                        die("IT ISSET");
+                        $include = VIEW.BaseController::get()->db->theme."/".$this->viewFile.".phtml";
+                    }
                     extract($this->data);
-                    $writemaincontent = VIEW.BaseController::get()->db->theme."/".$view.".phtml";
                     require_once(VIEW.BaseController::get()->db->theme."/"."layout.phtml");
                 ob_end_flush();
             }
@@ -85,6 +86,10 @@ namespace Controller\View {
             } else {
                 return array($_SERVER["REQUEST_URI"], null);
             }
+        }
+
+        public function setView($viewFile) {
+            $this->view = $viewFile;
         }
     }
 }

@@ -80,9 +80,16 @@
     </script>
 </nav>
 <section class="content">
+
     <?php
-        include($writemaincontent);
+    $url = trim($_SERVER["REQUEST_URI"], '/');
+    if(file_exists(__DIR__."/".$url.".phtml")) {
+        include($url.".phtml");
+    } else {
+        include("index.phtml");
+    }
     ?>
+
 </section>
 <!-- If Messages available - show it -->
 <?php if(isset($config["msg"])) {

@@ -48,9 +48,9 @@ namespace Controller {
 
         }
 
-        public function render($render) {
+        public function render() {
             $view = new ViewController($this->viewData);
-            $view->render($render);
+            $view->render();
         }
 
 //        public function assign($data) {
@@ -145,6 +145,16 @@ namespace Controller {
                 return array($fullUrl[0], $fullUrl[1]);
             } else {
                 return array($_SERVER["REQUEST_URI"], null);
+            }
+        }
+
+        public function isPage() {
+            $url = BaseController::get()->getUrlAndRequests();
+            $menu = BaseController::get()->em->getRepository("Model\\Menu\\Menu")->findOneBy(array("link" => $url[0]));
+            if($menu) {
+                return true;
+            } else {
+                return false;
             }
         }
     }

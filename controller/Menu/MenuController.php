@@ -2,6 +2,7 @@
 
 namespace Controller\Menu {
     use Controller\BaseController;
+    use Model\Cms\Cms;
     use Model\Menu\Menu;
 
     class MenuController {
@@ -33,16 +34,43 @@ namespace Controller\Menu {
             if($exists) {
                 BaseController::get()->assign("config", array("msg" => "Page allready exists"), true);
             } else {
+
+                $cms = new Cms();
+
                 $menu = new Menu();
                 $menu->setTitle($title);
                 $menu->setLink($link);
                 $menu->setPlugin("Cms");
+                $menu->setCms($cms);
+
+
+
 
                 BaseController::get()->em->persist($menu);
+                BaseController::get()->em->persist($cms);
                 BaseController::get()->em->flush();
 
                 BaseController::get()->assign("config", array("msg" => "Page has been created"), true);
             }
+        }
+
+        public function delete() {
+            $id = BaseController::get()->pget("id");
+
+            $menu = BaseController::get()->em->find("Model\\Menu\\Menu", $id);
+            $cms = $menu->getCms();
+
+            BaseController::get()->em->remove($menu);
+            BaseController::get()->em->remove($cms);
+
+            BaseController::get()->em->flush();
+
+            BaseController::get()->redirect("/admin/pages");
+
+        }
+
+        public function edit() {
+            return true;
         }
 
     }

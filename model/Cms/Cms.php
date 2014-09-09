@@ -11,9 +11,6 @@ namespace Model\Cms {
         /** @Id @Column(type="integer") @GeneratedValue **/
         protected $id;
 
-        /** @Column(type="integer") **/
-        protected $selfref;
-
         /** @Column(type="string") **/
         protected $content;
 
@@ -50,22 +47,6 @@ namespace Model\Cms {
         public function getId()
         {
             return $this->id;
-        }
-
-        /**
-         * @param mixed $selfref
-         */
-        public function setSelfref($selfref)
-        {
-            $this->selfref = $selfref;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getSelfref()
-        {
-            return $this->selfref;
         }
 
         /**

@@ -1,6 +1,7 @@
 <?php
 
 namespace Controller\Router {
+    use Controller\BaseController;
     use Controller\Error\ErrorController;
 
     class RouterController {
@@ -151,10 +152,7 @@ namespace Controller\Router {
                         $result[] = $data;
                     }
                 }
-            } else {
-                $result[] = array("Controller\\Error\\ErrorController");
             }
-
             return $result;
         }
 

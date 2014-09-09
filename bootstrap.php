@@ -19,3 +19,5 @@ require_once(LIBS."routes.php");
 require_once(VIEW.\Controller\BaseController::get()->db->theme."/php/routes.php");
 
 \Controller\Router\RouterController::submit();
+
+\Controller\BaseController::get()->render();

@@ -56,8 +56,13 @@
     ?>
 </nav>
 <section class="content">
+
     <?php
-        include($writemaincontent);
+    //if(file_exists(__DIR__."/".$url.".phtml")) {
+    //    include($url.".phtml");
+    //} else {
+        echo $include;
+    //}
     ?>
 </section>
 <!-- If Messages available - show it -->

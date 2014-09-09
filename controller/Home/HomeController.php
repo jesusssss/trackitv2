@@ -6,7 +6,7 @@ namespace Controller\Home {
     class HomeController {
 
         public function render($page) {
-            BaseController::get()->render($page);
+            echo "Homecontroller construct run";
         }
     }
 }

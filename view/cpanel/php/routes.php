@@ -14,12 +14,6 @@ use Controller\Router\RouterController as Router;
 
 /* All pages */
 Router::create('*', 'CpanelController@countDomains');
-
-/* Front page */
-Router::create('/', 'CpanelController@render','index');
-
 /* Domain page */
 Router::create('/domains','CpanelController@getDomains');
-Router::create('/domains', 'CpanelController@render', 'domains');
-
 Router::create('/domains/delete', 'CpanelController@deleteDomain');

@@ -28,7 +28,7 @@
                     </td>
                     <td><?php echo $point["title"]; ?></td>
                     <td><?php echo $point["link"]; ?></td>
-                    <td><a href="/admin/cms?page-edit=<?php echo $point["id"]; ?>&tab=#edit"><i class="fa fa-cog"></i></a> / <a style="color: #C74F5A;" onclick="return confirm('You sure?');" href="/admin/cms/delete?id=<?php echo $point["id"]; ?>"><i class="fa fa-times"></i></a></td>
+                    <td><a href="/admin/pages?page-edit=<?php echo $point["id"]; ?>&tab=#edit"><i class="fa fa-cog"></i></a> / <a style="color: #C74F5A;" onclick="return confirm('You sure?');" href="/admin/pages/delete?id=<?php echo $point["id"]; ?>"><i class="fa fa-times"></i></a></td>
                 </tr>
             <?php
             }

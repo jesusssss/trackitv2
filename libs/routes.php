@@ -1,7 +1,11 @@
 <?php
 
 use Controller\Router\RouterController as Router;
-if(\Controller\BaseController::get()->db->theme != '_noTheme') {
+/* Themes to skip cms */
+$skip = array("_noTheme", "cpanel");
+if(!in_array(\Controller\BaseController::get()->db->theme, $skip)) {
     Router::create('*', 'MenuController@getMenu');
-    Router::create('/logout', 'UserController@logout');
+    Router::create('*', 'CmsController@getPage');
 }
+
+Router::create('/logout', 'UserController@logout');

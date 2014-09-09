@@ -13,4 +13,3 @@ use Controller\Router\RouterController as Router;
 //TODO Fix så man på en måde kan pakke routes væk bag login - så guests kan se nogle routes, og logins kan se andre routes
 
 /* Front page */
-Router::create('/', 'HomeController@render', 'frontpage');

@@ -6,7 +6,7 @@ namespace Controller\Error {
     class ErrorController {
 
         public function __construct() {
-            BaseController::get()->render("404");
+            echo "We got error constructor running";
         }
     }
 }

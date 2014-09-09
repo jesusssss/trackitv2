@@ -10,13 +10,11 @@ namespace Model\Menu {
 
     class Menu {
 
-        /** @OneToOne(targetEntity="Model\Cms\Cms")
-         * @JoinColumn(name="id", referencedColumnName="selfref")
-         **/
-        protected $cms;
-
         /** @Id @Column(type="integer") @GeneratedValue **/
         protected $id;
+
+        /** @Column(type="integer") **/
+        protected $cmsId;
 
         /** @Column(type="string") **/
         protected $link;
@@ -26,6 +24,12 @@ namespace Model\Menu {
 
         /** @Column(type="string") **/
         protected $plugin;
+
+
+        /** @OneToOne(targetEntity="Model\Cms\Cms")
+         * @JoinColumn(name="cmsId", referencedColumnName="id")
+         **/
+        protected $cms;
 
         /**
          * @param mixed $id
@@ -42,6 +46,40 @@ namespace Model\Menu {
         {
             return $this->id;
         }
+
+        /**
+         * @param mixed $cmsId
+         */
+        public function setCmsId($cmsId)
+        {
+            $this->cmsId = $cmsId;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getCmsId()
+        {
+            return $this->cmsId;
+        }
+
+        /**
+         * @param mixed $cms
+         */
+        public function setCms(Cms $cms)
+        {
+            $this->cms = $cms;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getCms()
+        {
+            return $this->cms;
+        }
+
+
 
         /**
          * @param mixed $link
